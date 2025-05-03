@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+   env: {
+    NEXT_PUBLIC_PIZZERIA_PHONE_NUMBER: process.env.NEXT_PUBLIC_PIZZERIA_PHONE_NUMBER,
+  },
 };
 
 export default nextConfig;

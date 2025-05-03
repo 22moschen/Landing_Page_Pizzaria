@@ -1,0 +1,104 @@
+{
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Margherita Classic",
+      "description": "Simple yet delicious: tomato sauce, fresh mozzarella, basil.",
+      "price": 12.99,
+      "imageUrl": "https://picsum.photos/seed/margherita/400/300",
+      "category": "pizza"
+    },
+    {
+      "id": 2,
+      "name": "Pepperoni Feast",
+      "description": "Loaded with spicy pepperoni slices and mozzarella cheese.",
+      "price": 14.99,
+      "imageUrl": "https://picsum.photos/seed/pepperoni/400/300",
+      "category": "pizza"
+    },
+    {
+      "id": 3,
+      "name": "Veggie Supreme",
+      "description": "A garden delight: bell peppers, onions, olives, mushrooms, tomato.",
+      "price": 15.99,
+      "imageUrl": "https://picsum.photos/seed/veggie/400/300",
+      "category": "pizza"
+    },
+     {
+      "id": 4,
+      "name": "BBQ Chicken",
+      "description": "Tangy BBQ sauce, grilled chicken, red onions, cilantro.",
+      "price": 16.99,
+      "imageUrl": "https://picsum.photos/seed/bbqchicken/400/300",
+      "category": "pizza"
+    },
+     {
+      "id": 5,
+      "name": "Hawaiian Paradise",
+      "description": "Sweet & savory: ham, pineapple chunks, mozzarella.",
+      "price": 14.99,
+      "imageUrl": "https://picsum.photos/seed/hawaiian/400/300",
+      "category": "pizza"
+    },
+     {
+      "id": 6,
+      "name": "Meat Lover's",
+      "description": "For the carnivore: pepperoni, sausage, ham, bacon.",
+      "price": 17.99,
+      "imageUrl": "https://picsum.photos/seed/meatlovers/400/300",
+      "category": "pizza"
+    }
+  ],
+  "sides": [
+    {
+      "id": 101,
+      "name": "Garlic Knots",
+      "description": "Warm, buttery knots brushed with garlic and herbs.",
+      "price": 5.99,
+      "imageUrl": "https://picsum.photos/seed/garlicknots/400/300",
+      "category": "side"
+    },
+    {
+      "id": 102,
+      "name": "Cheesy Breadsticks",
+      "description": "Served with marinara dipping sauce.",
+      "price": 6.99,
+      "imageUrl": "https://picsum.photos/seed/breadsticks/400/300",
+      "category": "side"
+    },
+     {
+      "id": 103,
+      "name": "Chicken Wings",
+      "description": "Choice of BBQ, Buffalo, or Garlic Parmesan.",
+      "price": 9.99,
+      "imageUrl": "https://picsum.photos/seed/wings/400/300",
+      "category": "side"
+    }
+  ],
+  "drinks": [
+    {
+      "id": 201,
+      "name": "Cola",
+      "description": "Classic cola soda.",
+      "price": 1.99,
+      "imageUrl": "https://picsum.photos/seed/cola/400/300",
+       "category": "drink"
+    },
+    {
+      "id": 202,
+      "name": "Lemon-Lime Soda",
+      "description": "Refreshing citrus fizz.",
+      "price": 1.99,
+      "imageUrl": "https://picsum.photos/seed/lemonlime/400/300",
+       "category": "drink"
+    },
+    {
+      "id": 203,
+      "name": "Bottled Water",
+      "description": "Pure and simple hydration.",
+      "price": 1.49,
+      "imageUrl": "https://picsum.photos/seed/water/400/300",
+      "category": "drink"
+    }
+  ]
+}
