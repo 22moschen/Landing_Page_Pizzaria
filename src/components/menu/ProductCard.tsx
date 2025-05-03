@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <Card className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full group">
       <CardHeader className="p-0 relative aspect-video">
         <Image
-          src={product.imageUrl}
+          src={product.imageUrl || '/images/placeholder.png'}
           alt={product.name}
           fill
           style={{}}

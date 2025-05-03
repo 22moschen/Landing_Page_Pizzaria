@@ -2,102 +2,102 @@
   "pizzas": [
     {
       "id": 1,
-      "name": "Margherita Classic",
-      "description": "Simple yet delicious: tomato sauce, fresh mozzarella, basil.",
-      "price": 12.99,
-      "imageUrl": "https://picsum.photos/seed/margherita/400/300",
+      "name": "Margherita Clássica",
+      "description": "A rainha das pizzas: molho de tomate artesanal, mussarela fresca derretida e folhas de manjericão vibrante. Uma explosão de sabor simples e autêntico.",
+      "price": 35.90,
+      "imageUrl": "/images/pizza-margherita.jpg",
       "category": "pizza"
     },
     {
       "id": 2,
-      "name": "Pepperoni Feast",
-      "description": "Loaded with spicy pepperoni slices and mozzarella cheese.",
-      "price": 14.99,
-      "imageUrl": "https://picsum.photos/seed/pepperoni/400/300",
+      "name": "Pepperoni Picante",
+      "description": "Para os amantes de um toque ousado: generosas fatias de pepperoni premium, ricamente temperado, sobre uma cama de mussarela cremosa e nosso delicioso molho de tomate secreto.",
+      "price": 42.50,
+      "imageUrl": "/images/pizza-pepperoni.jpg",
       "category": "pizza"
     },
     {
       "id": 3,
-      "name": "Veggie Supreme",
-      "description": "A garden delight: bell peppers, onions, olives, mushrooms, tomato.",
-      "price": 15.99,
-      "imageUrl": "https://picsum.photos/seed/veggie/400/300",
+      "name": "Vegetariana Delícia",
+      "description": "Um jardim de sabores frescos: pimentões coloridos, cebola roxa crocante, azeitonas suculentas, cogumelos frescos e tomate maduro, tudo sobre uma base irresistível.",
+      "price": 45.90,
+      "imageUrl": "/images/pizza-vegetariana.jpg",
       "category": "pizza"
     },
-     {
+    {
       "id": 4,
-      "name": "BBQ Chicken",
-      "description": "Tangy BBQ sauce, grilled chicken, red onions, cilantro.",
-      "price": 16.99,
-      "imageUrl": "https://picsum.photos/seed/bbqchicken/400/300",
+      "name": "Frango Barbecue Defumado",
+      "description": "Uma combinação agridoce de dar água na boca: cubos de frango grelhado, marinado em nosso molho barbecue defumado exclusivo, com cebola roxa e um toque de coentro fresco.",
+      "price": 48.90,
+      "imageUrl": "/images/pizza-frango-bbq.jpg",
       "category": "pizza"
     },
-     {
+    {
       "id": 5,
-      "name": "Hawaiian Paradise",
-      "description": "Sweet & savory: ham, pineapple chunks, mozzarella.",
-      "price": 14.99,
-      "imageUrl": "https://picsum.photos/seed/hawaiian/400/300",
+      "name": "Havaiana Tropical",
+      "description": "Uma viagem ao paraíso: fatias de presunto defumado de alta qualidade e pedaços doces de abacaxi caramelizado sobre uma camada generosa de mussarela.",
+      "price": 40.50,
+      "imageUrl": "/images/pizza-havaiana.jpg",
       "category": "pizza"
     },
-     {
+    {
       "id": 6,
-      "name": "Meat Lover's",
-      "description": "For the carnivore: pepperoni, sausage, ham, bacon.",
-      "price": 17.99,
-      "imageUrl": "https://picsum.photos/seed/meatlovers/400/300",
+      "name": "Carnívora Suprema",
+      "description": "Para os verdadeiros apreciadores de carne: pepperoni picante, linguiça italiana artesanal, presunto defumado e bacon crocante, tudo em uma só pizza para uma experiência intensa.",
+      "price": 52.90,
+      "imageUrl": "/images/pizza-carnivora.jpg",
       "category": "pizza"
     }
   ],
   "sides": [
     {
       "id": 101,
-      "name": "Garlic Knots",
-      "description": "Warm, buttery knots brushed with garlic and herbs.",
-      "price": 5.99,
-      "imageUrl": "https://picsum.photos/seed/garlicknots/400/300",
+      "name": "Nós de Alho Crocantes",
+      "description": "Deliciosos nós de massa assados, pincelados com manteiga derretida, alho fresco picado e ervas aromáticas. Perfeitos para começar ou acompanhar sua pizza.",
+      "price": 12.90,
+      "imageUrl": "/images/side-nos-alho.jpeg",
       "category": "side"
     },
     {
       "id": 102,
-      "name": "Cheesy Breadsticks",
-      "description": "Served with marinara dipping sauce.",
-      "price": 6.99,
-      "imageUrl": "https://picsum.photos/seed/breadsticks/400/300",
+      "name": "Palitos de Queijo Cremosos",
+      "description": "Palitos de massa macia cobertos com queijo mussarela derretido e parmesão ralado. Acompanha nosso delicioso molho marinara artesanal.",
+      "price": 15.90,
+      "imageUrl": "/images/side-palitos-queijo.jpg",
       "category": "side"
     },
-     {
+    {
       "id": 103,
-      "name": "Chicken Wings",
-      "description": "Choice of BBQ, Buffalo, or Garlic Parmesan.",
-      "price": 9.99,
-      "imageUrl": "https://picsum.photos/seed/wings/400/300",
+      "name": "Asinhas de Frango Picantes",
+      "description": "Suculentas asinhas de frango assadas, com a sua escolha de molho: barbecue defumado, buffalo picante ou alho e parmesão cremoso. Uma explosão de sabor!",
+      "price": 22.90,
+      "imageUrl": "/images/side-asinhas-frango.jpg",
       "category": "side"
     }
   ],
   "drinks": [
     {
       "id": 201,
-      "name": "Cola",
-      "description": "Classic cola soda.",
-      "price": 1.99,
-      "imageUrl": "https://picsum.photos/seed/cola/400/300",
-       "category": "drink"
+      "name": "Refrigerante Cola Gelo",
+      "description": "O clássico refrigerante de cola, gelado e refrescante, perfeito para acompanhar sua pizza.",
+      "price": 7.50,
+      "imageUrl": "/images/drink-cola.jpg",
+      "category": "drink"
     },
     {
       "id": 202,
-      "name": "Lemon-Lime Soda",
-      "description": "Refreshing citrus fizz.",
-      "price": 1.99,
-      "imageUrl": "https://picsum.photos/seed/lemonlime/400/300",
-       "category": "drink"
+      "name": "Refrigerante Limão Refrescante",
+      "description": "Uma explosão cítrica e refrescante do nosso refrigerante de limão gelado. Ideal para limpar o paladar.",
+      "price": 7.50,
+      "imageUrl": "/images/drink-limao.jpg",
+      "category": "drink"
     },
     {
       "id": 203,
-      "name": "Bottled Water",
-      "description": "Pure and simple hydration.",
-      "price": 1.49,
-      "imageUrl": "https://picsum.photos/seed/water/400/300",
+      "name": "Água Mineral Natural",
+      "description": "Água mineral pura e gelada para matar a sede e complementar sua refeição.",
+      "price": 5.00,
+      "imageUrl": "/images/drink-agua.jpg",
       "category": "drink"
     }
   ]

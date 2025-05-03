@@ -25,7 +25,7 @@ const Header: React.FC = () => {
            <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg">
              PZ
            </div>
-          <span className="text-lg font-bold">PizzaZap</span>
+          <span className="text-lg font-bold">Mais Que Massa</span>
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
           <Link

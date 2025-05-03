@@ -6,7 +6,8 @@
  * @returns A URL string for the WhatsApp message.
  */
 export function generateWhatsAppUrl(phoneNumber: string, message: string): string {
-  // TODO: Implement this by calling an API.
-  const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    return url;
 }

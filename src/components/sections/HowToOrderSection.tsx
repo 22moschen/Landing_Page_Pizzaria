@@ -1,49 +1,83 @@
+'use client';
+
 import React from 'react';
-import { ListChecks, ShoppingCart, MessageSquare, Pizza } from 'lucide-react'; // Example icons
-import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { useShoppingCart } from '@/context/ShoppingCartContext';
+import menuData from '@/data/menu.json';
+import { X, Plus, Minus } from 'lucide-react';
+import type { Product } from '@/types';
 
-const steps = [
-  {
-    icon: ListChecks,
-    title: '1. Browse the Menu',
-    description: 'Explore our delicious variety of pizzas and sides.',
-  },
-  {
-    icon: ShoppingCart,
-    title: '2. Add to Cart',
-    description: 'Select your favorite items and add them to your shopping cart.',
-  },
-  {
-    icon: MessageSquare,
-    title: '3. Checkout via WhatsApp',
-    description: 'Click "Finalize Order" to send your order details directly to us on WhatsApp.',
-  },
-  {
-    icon: Pizza,
-    title: '4. Enjoy!',
-    description: 'Sit back, relax, and wait for your hot pizza to arrive!',
-  },
-];
+type CartItemProps = {
+  id: number;
+  quantity: number;
+};
 
-const HowToOrderSection: React.FC = () => {
+const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
+  const {
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+
+  // Combine all items for easy lookup
+  const allItems = [...menuData.pizzas, ...menuData.sides, ...menuData.drinks];
+  const item = allItems.find((i) => i.id === id) as Product | undefined;
+
+  if (!item) {
+    return null;
+  }
+
   return (
-    <section id="how-to-order" className="container px-4 md:px-6">
-      <h2 className="text-center mb-8 md:mb-12">Order in 4 Easy Steps</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {steps.map((step, index) => (
-          <Card key={index} className="text-center shadow-md hover:shadow-lg transition-shadow bg-card">
-             <CardContent className="pt-6">
-               <div className="mx-auto bg-accent text-accent-foreground rounded-full p-3 w-fit mb-4">
-                  <step.icon className="h-6 w-6" />
-               </div>
-              <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-              <p className="text-muted-foreground text-sm">{step.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+    <div className="flex items-center gap-4 py-2">
+      <div className="relative w-20 h-20 overflow-hidden rounded-md">
+        <Image
+          src={item.imageUrl || '/images/placeholder.png'}
+          alt={item.name}
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
+          data-ai-hint="pizza food item"
+        />
       </div>
-    </section>
+      <div className="flex-grow">
+        <p className="font-medium">{item.name}</p>
+        <p className="text-sm text-muted-foreground">
+          R$ {item.price?.toFixed(2).replace('.', ',')}
+        </p>
+      </div>
+      <div className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-7 w-7"
+          onClick={() => decreaseCartQuantity(id)}
+          aria-label={`Diminuir quantidade de ${item.name}`}
+        >
+          <Minus className="h-4 w-4" />
+        </Button>
+        <span className="text-sm font-medium w-6 text-center">{quantity}</span>
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-7 w-7"
+          onClick={() => increaseCartQuantity(id)}
+          aria-label={`Aumentar quantidade de ${item.name}`}
+        >
+          <Plus className="h-4 w-4" />
+        </Button>
+      </div>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-7 w-7 text-muted-foreground hover:text-destructive"
+        onClick={() => removeFromCart(id)}
+        aria-label={`Remover ${item.name} do carrinho`}
+      >
+        <X className="h-4 w-4" />
+      </Button>
+    </div>
   );
 };
 
-export default HowToOrderSection;
+export default CartItem;

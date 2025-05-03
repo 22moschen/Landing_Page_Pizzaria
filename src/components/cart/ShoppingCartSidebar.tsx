@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useShoppingCart } from '@/context/ShoppingCartContext';
 import CartItem from './CartItem';
-import CheckoutButton from './CheckoutButton';
+import CheckoutButton from '../client/CheckoutButton';
 import menuData from '@/data/menu.json'; // Import menu data to get item details
 
 interface ShoppingCartSidebarProps {
@@ -21,11 +21,16 @@ interface ShoppingCartSidebarProps {
   onClose: () => void;
 }
 
-const ShoppingCartSidebar: React.FC<ShoppingCartSidebarProps> = ({ isOpen, onClose }) => {
+const ShoppingCartSidebar: React.FC<ShoppingCartSidebarProps> = ({ isOpen, onClose }: ShoppingCartSidebarProps) => {
   const { cartItems } = useShoppingCart();
 
   // Combine all items for easy lookup
   const allItems = [...menuData.pizzas, ...menuData.sides, ...menuData.drinks];
+
+  interface CartItemType {
+    id: number;
+    quantity: number;
+  }
 
   const subtotal = cartItems.reduce((total, cartItem) => {
     const item = allItems.find(i => i.id === cartItem.id);
@@ -44,7 +49,7 @@ const ShoppingCartSidebar: React.FC<ShoppingCartSidebarProps> = ({ isOpen, onClo
             <p className="text-center text-muted-foreground mt-8">Your cart is empty.</p>
           ) : (
             <div className="space-y-4">
-              {cartItems.map(item => (
+              {cartItems.map((item: CartItemType) => (
                 <CartItem key={item.id} {...item} />
               ))}
             </div>
@@ -56,11 +61,11 @@ const ShoppingCartSidebar: React.FC<ShoppingCartSidebarProps> = ({ isOpen, onClo
             <SheetFooter className="mt-auto">
               <div className="w-full space-y-4">
                  <div className="flex justify-between font-semibold text-lg">
-                    <span>Subtotal:</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                  <span>Subtotal:</span>
+                  <span>${subtotal.toFixed(2)}</span>
                  </div>
                  <CheckoutButton />
-                  <SheetClose asChild>
+                <SheetClose asChild>
                     <Button variant="outline" className="w-full">Continue Shopping</Button>
                   </SheetClose>
               </div>
@@ -73,3 +78,4 @@ const ShoppingCartSidebar: React.FC<ShoppingCartSidebarProps> = ({ isOpen, onClo
 };
 
 export default ShoppingCartSidebar;
+

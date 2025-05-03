@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input'; // Use Input for quantity display/adjustment
 import { useShoppingCart } from '@/context/ShoppingCartContext';
 import menuData from '@/data/menu.json';
 import { X, Plus, Minus } from 'lucide-react';
@@ -16,7 +15,6 @@ type CartItemProps = {
 
 const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
   const {
-    getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
@@ -24,23 +22,29 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
 
   // Combine all items for easy lookup
   const allItems = [...menuData.pizzas, ...menuData.sides, ...menuData.drinks];
-  const item = allItems.find(i => i.id === id) as Product | undefined; // Added type assertion
+  const item = allItems.find((i) => i.id === id) as Product | undefined;
 
-  if (item == null) return null; // Don't render if item not found
+  if (!item) {
+    return null;
+  }
 
   return (
     <div className="flex items-center gap-4 py-2">
-      <Image
-        src={item.imageUrl}
-        fill
-        alt={item.name}
-        style={{ objectFit: 'cover' }}
-        sizes='100px'
-        data-ai-hint="pizza food item"
-      />
+      <div className="relative w-20 h-20 overflow-hidden rounded-md">
+        <Image
+          src={item.imageUrl || '/images/placeholder.png'}
+          alt={item.name}
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
+          data-ai-hint="pizza food item"
+        />
+      </div>
       <div className="flex-grow">
         <p className="font-medium">{item.name}</p>
-        <p className="text-sm text-muted-foreground">${item.price.toFixed(2)}</p>
+        <p className="text-sm text-muted-foreground">
+          R$ {item.price?.toFixed(2).replace('.', ',')}
+        </p>
       </div>
       <div className="flex items-center gap-2">
         <Button
@@ -48,7 +52,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
           size="icon"
           className="h-7 w-7"
           onClick={() => decreaseCartQuantity(id)}
-          aria-label={`Decrease quantity of ${item.name}`}
+          aria-label={`Diminuir quantidade de ${item.name}`}
         >
           <Minus className="h-4 w-4" />
         </Button>
@@ -58,17 +62,17 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
           size="icon"
           className="h-7 w-7"
           onClick={() => increaseCartQuantity(id)}
-          aria-label={`Increase quantity of ${item.name}`}
+          aria-label={`Aumentar quantidade de ${item.name}`}
         >
           <Plus className="h-4 w-4" />
         </Button>
       </div>
-       <Button
+      <Button
         variant="ghost"
         size="icon"
         className="h-7 w-7 text-muted-foreground hover:text-destructive"
         onClick={() => removeFromCart(id)}
-        aria-label={`Remove ${item.name} from cart`}
+        aria-label={`Remover ${item.name} do carrinho`}
       >
         <X className="h-4 w-4" />
       </Button>

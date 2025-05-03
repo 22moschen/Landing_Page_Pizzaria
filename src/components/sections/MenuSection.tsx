@@ -2,14 +2,22 @@
 
 import React from 'react';
 import ProductCard from '@/components/menu/ProductCard';
-import menuData from '@/data/menu.json'; // Import menu data
+import menuDataJson from '@/data/menu.json'; // Import menu data
+import { Product } from '@/types';
 
+
+interface MenuData {
+  pizzas: Product[];
+  sides: Product[];
+  drinks: Product[];
+}
+const menuData = menuDataJson as MenuData;
 const MenuSection: React.FC = () => {
   return (
     <section id="menu" className="container px-4 md:px-6">
       <h2 className="text-center mb-8 md:mb-12">Nosso Delicioso Cardápio</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {menuData.pizzas.map((pizza) => (
+        {menuData.pizzas.map((pizza: Product) => (
           <ProductCard key={pizza.id} product={pizza} />
         ))}
       </div>
