@@ -1,15 +1,21 @@
+
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useShoppingCart } from '@/context/ShoppingCartContext';
-import Image from 'next/image';
+import Image from 'next/image'; // Keep this import if PZ logo uses Image later
 
 const Header: React.FC = () => {
   const { openCart, cartQuantity } = useShoppingCart();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,29 +32,29 @@ const Header: React.FC = () => {
             href="#menu"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Menu
+            Cardápio
           </Link>
           <Link
-            href="#why-us"
+            href="#porque-nos" // Updated ID to match WhyUsSection
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Why Us?
+            Por que Nós?
           </Link>
           <Link
             href="#how-to-order"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            How to Order
+            Como Pedir
           </Link>
           <Button
             onClick={openCart}
             variant="ghost"
             size="icon"
             className="relative"
-            aria-label="Open shopping cart"
+            aria-label="Abrir carrinho de compras" // Updated aria-label
           >
             <ShoppingCart className="h-5 w-5" />
-            {cartQuantity > 0 && (
+            {hasMounted && cartQuantity > 0 && (
               <Badge
                 variant="destructive"
                 className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center rounded-full text-xs"
@@ -64,10 +70,10 @@ const Header: React.FC = () => {
             variant="ghost"
             size="icon"
             className="relative"
-            aria-label="Open shopping cart"
+            aria-label="Abrir carrinho de compras" // Updated aria-label
           >
             <ShoppingCart className="h-5 w-5" />
-            {cartQuantity > 0 && (
+            {hasMounted && cartQuantity > 0 && (
               <Badge
                 variant="destructive"
                 className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center rounded-full text-xs"
@@ -84,3 +90,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
