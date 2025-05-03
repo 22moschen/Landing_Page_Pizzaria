@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
     >
       {/* Imagem de Fundo */}
       <Image
-        src="https://picsum.photos/1200/800" // Added placeholder src
+        src="/images/pizza-margherita.jpg" // Added placeholder src
         alt="Fundo de pizza deliciosa"
         style={{ objectFit: 'cover' }}
         quality={80}
