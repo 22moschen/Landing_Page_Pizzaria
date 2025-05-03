@@ -31,11 +31,11 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
   return (
     <div className="flex items-center gap-4 py-2">
       <Image
-        src={item.imageUrl || 'https://picsum.photos/100/100'}
+        src={item.imageUrl}
+        fill
         alt={item.name}
-        width={64}
-        height={64}
-        className="rounded-md object-cover"
+        style={{ objectFit: 'cover' }}
+        sizes='100px'
         data-ai-hint="pizza food item"
       />
       <div className="flex-grow">

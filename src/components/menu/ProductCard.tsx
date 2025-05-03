@@ -20,35 +20,36 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleAddToCart = () => {
     increaseCartQuantity(product.id);
     toast({
-      title: `${product.name} added to cart!`,
-      description: 'Continue shopping or view your cart.',
+      title: `${product.name} adicionado ao carrinho!`,
+      description: 'Continue comprando ou veja seu carrinho.',
       variant: 'default', // Use 'default' or 'success' if defined
       duration: 3000,
     });
   };
 
   return (
-    <Card className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full">
+    <Card className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full group">
       <CardHeader className="p-0 relative aspect-video">
         <Image
-          src={product.imageUrl || 'https://picsum.photos/400/300'} // Use provided URL or placeholder
+          src={product.imageUrl}
           alt={product.name}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{}}
           className="transition-transform duration-300 ease-in-out group-hover:scale-105"
-          data-ai-hint="pizza food item" // Add AI hint for image search
+          data-ai-hint="item de comida pizza" // Add AI hint for image search
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" // Define sizes for different screen widths
         />
       </CardHeader>
       <CardContent className="p-4 flex-grow">
         <CardTitle className="text-lg font-semibold mb-1">{product.name}</CardTitle>
         <CardDescription className="text-sm text-muted-foreground mb-3">{product.description}</CardDescription>
-         <p className="text-lg font-bold text-primary">
-            ${product.price.toFixed(2)}
+        <p className="text-lg font-bold text-primary">
+          R$ {product.price?.toFixed(2).replace('.', ',')}
         </p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button onClick={handleAddToCart} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+          <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
         </Button>
       </CardFooter>
     </Card>

@@ -9,30 +9,31 @@ const HeroSection: React.FC = () => {
       id="hero"
       className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden"
     >
-      {/* Background Image */}
+      {/* Imagem de Fundo */}
       <Image
-        src="https://picsum.photos/1600/900"
-        alt="Delicious pizza background"
-        layout="fill"
-        objectFit="cover"
+        src="https://picsum.photos/1200/800" // Added placeholder src
+        alt="Fundo de pizza deliciosa"
+        style={{ objectFit: 'cover' }}
         quality={80}
-        priority // Load the hero image first
-        className="absolute inset-0 z-0 opacity-80"
-        data-ai-hint="pizza food background"
+        priority // Carregar a imagem principal primeiro
+        fill
+        sizes="100vw"
+        className=" z-0 opacity-80"
+        data-ai-hint="fundo de comida pizza" // Updated hint to Portuguese
       />
-      {/* Overlay */}
+      {/* Camada Escura */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-      {/* Content */}
+      {/* Conteúdo */}
       <div className="relative z-20 container px-4 md:px-6 max-w-3xl">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md">
-          Hot & Fresh Pizza, Right to Your Door!
+          Pizza Quente e Fresquinha, Direto na Sua Porta!
         </h1>
         <p className="text-lg md:text-xl mb-8 drop-shadow-sm">
-          Experience the taste of authentic pizza made with the finest ingredients. Order now for quick delivery via WhatsApp.
+          Experimente o sabor da autêntica pizza feita com os melhores ingredientes. Peça agora e receba sua pizza rapidinho pelo WhatsApp.
         </p>
         <Button asChild size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-shadow">
-          <Link href="#menu">Order Now</Link>
+          <Link href="#menu">Peça Agora</Link>
         </Button>
       </div>
     </section>
